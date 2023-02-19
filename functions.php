@@ -215,4 +215,44 @@ function create_products() {
 
 add_action('init', 'create_products');
 
+
+//Creating product shortcode with BG color
+
+function custom_product_shortcode( $atts ) {
+  $atts = shortcode_atts( array(
+    'product_id' => '',
+    'background_color' => '',
+  ), $atts );
+
+  $product_id = intval( $atts['product_id'] );
+  $background_color = sanitize_hex_color( $atts['background_color'] );
+
+  $product = get_post( $product_id );
+  $product_title = $product->post_title;
+  $product_price = get_post_meta( $product_id, 'meta_price', true );
+  $product_sale_price = get_post_meta( $product_id, 'meta_sale_price', true );
+  $product_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'thumbnail' );
+  $product_image_url = $product_image_url[0];
+
+  ob_start();
+  ?>
+  <div class="product-shortcode" style="background-color: <?php echo $background_color; ?>; padding: 10px;">
+    <img src="<?php echo $product_image_url; ?>" alt="<?php echo $product_title; ?>" />
+    <h3><?php echo $product_title; ?></h3>
+    <p>
+      <?php 
+        if( $product_sale_price != NULL ) {
+          echo "Price: <span style='text-decoration: line-through;'>$product_price</span> <span style='font-weight: bold;'>$product_sale_price</span>"; 
+        } else {
+          echo "Price:  $product_price";
+        }
+      ?>
+    </p>
+  </div>
+  <?php
+  $output = ob_get_clean();
+  return $output;
+}
+add_shortcode( 'custom_product', 'custom_product_shortcode' );
+
 ?>

@@ -21,28 +21,25 @@ a {
 
 .product-item {
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  background-color: #010051;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
   position: relative;
 }
 
 .product-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-item h2 {
   font-size: 2rem;
-  color: #333;
+  color: #d9fff1;
   text-align: center;
-}
-
-.product-item:hover h2 {
-  opacity: 0.8;
-  transition: all 0.2s;
 }
 
 .product-image {
@@ -54,24 +51,21 @@ a {
   height: 20rem;
 }
 
-.product-item:hover .product-image {
-  opacity: 0.9;
-  transition: all 0.2s;
-}
-
 .on-sale {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   position: absolute;
-  height: 7rem;
-  width: 7rem;
+  height: 5rem;
+  width: 5rem;
   border-radius: 50%;
-  background-color: #333;
-  color: #f9f9f9;
-  top: -2rem;
-  left: -2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #46f2b6;
+  color: #010051;
+  top: -1rem;
+  left: -1rem;
   z-index: 2;
 }
 
@@ -149,6 +143,25 @@ a {
   transition: all 0.3s;
 }
 
+/* Shortcode styling */
+
+.product-shortcode {
+  max-width: 30rem !important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.product-shortcode:hover {
+  transform: translateY(-1rem);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Some misc site styling :-) */
 
 .header-navigation-wrapper {
@@ -160,7 +173,7 @@ body {
 }
 
 #site-header {
-  background-color: #05047e;
+  background-color: #010051;
 }
 
 .header-inner {
