@@ -5,3 +5,175 @@
  Template:     twentytwenty
  Version:      1.0.0
 */
+
+/* Front Page Products Grid */
+
+a {
+  text-decoration: none;
+}
+
+.products-grid {
+  margin: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+}
+
+.product-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-item h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.product-item:hover h2 {
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+
+.product-image {
+  margin-bottom: 20px;
+}
+
+.product-image img {
+  width: 20rem;
+  height: 20rem;
+}
+
+.product-item:hover .product-image {
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+
+.on-sale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  position: absolute;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  background-color: #333;
+  color: #f9f9f9;
+  top: -2rem;
+  left: -2rem;
+  z-index: 2;
+}
+
+/* Single Product */
+
+.single-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-main-image {
+  margin-top: 2rem;
+}
+
+.product-main-image img {
+  width: 50rem;
+  height: 50rem;
+  z-index: 1;
+}
+
+.product-price,
+.product-sale-price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.product-gallery-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 640px) {
+  .product-gallery-images {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.product-gallery-images img {
+  height: 20rem;
+  width: 20rem;
+}
+
+.product-youtube-video {
+  margin-bottom: 2rem;
+}
+
+.related-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.related-products ul {
+  margin: 0;
+  list-style: none;
+}
+
+.related-products ul li {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.related-products ul li a {
+  color: #05047e;
+}
+
+.related-products ul li a:hover {
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+/* Some misc site styling :-) */
+
+.header-navigation-wrapper {
+  display: none;
+}
+
+body {
+  background-color: #d9fff1;
+}
+
+#site-header {
+  background-color: #05047e;
+}
+
+.header-inner {
+  justify-content: center;
+}
+
+.header-titles a {
+  color: #d9fff1;
+  text-decoration: none;
+}
+
+.header-titles a:hover {
+  opacity: 0.8;
+  transition: all 0.2s;
+  text-decoration: none;
+}
