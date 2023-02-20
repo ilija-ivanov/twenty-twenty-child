@@ -273,4 +273,45 @@ function custom_product_shortcode_filter($output, $product_id, $background_color
 //Uncomment filter below to override shortcut output
 // add_filter('custom_product_shortcode_output', 'custom_product_shortcode_filter', 10, 3);
 
+//Creating a custom JSON-API endpoint that returns a list of products from a particular category in JSON format
+
+function get_products_in_category( $request ) {
+  $category = $request->get_param( 'category' );
+  $args = array(
+      'post_type' => 'product',
+      'posts_per_page' => -1,
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'product_category',
+              'field' => 'slug',
+              'terms' => $category,
+          ),
+      ),
+  );
+  $products = new WP_Query( $args );
+  $data = array();
+  while ( $products->have_posts() ) {
+      $products->the_post();
+      $product_data = array(
+          'title' => get_the_title(),
+          'description' => get_the_content(),
+          'image' => get_the_post_thumbnail_url(),
+          'price' => get_post_meta( get_the_ID(), 'meta_price', true ),
+          'sale_price' => get_post_meta( get_the_ID(), 'meta_sale_price', true ),
+          'on_sale' => get_post_meta( get_the_ID(), 'meta_on_sale', true ),
+      );
+      $data[] = $product_data;
+  }
+  wp_reset_postdata();
+  return rest_ensure_response( $data );
+}
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'product-categories-json-api/v1', '/products-in-category/(?P<category>[a-zA-Z0-9-]+)', array(
+      'methods' => 'GET',
+      'callback' => 'get_products_in_category',
+  ) );
+} );
+
+
 ?>

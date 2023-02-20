@@ -57,3 +57,15 @@ Created a user in functions.php and disabled their admin bar
 Created product shortcode that displays the product in a box. It accepts two attributes, the product ID and a background color in a hex value.
 
 Example: [custom_product product_id="25" background_color="#46f2b6"]
+
+## Part 6 - Filters & Hooks
+
+Added a custom filter that overrides the shortcode output when applied
+
+Created header.php file with a simpler header version than the parent theme, and added the theme-color meta tag to it
+
+## Part 7 - json-api
+
+Created JSON API endpoint for retrieving JSON object with products from a specific category in the functions.php file
+
+Example enpoint URL (replace domain): http://elementor-dev.local/wp-json/product-categories-json-api/v1/products-in-category/category-1
