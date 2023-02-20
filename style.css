@@ -72,9 +72,16 @@ a {
 /* Single Product */
 
 .single-product-container {
+  max-width: 100rem;
+  margin: 5rem auto;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #010051;
+  color: #d9fff1;
+  border-radius: 5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .product-main-image {
@@ -120,7 +127,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .related-products ul {
@@ -143,6 +150,10 @@ a {
   transition: all 0.3s;
 }
 
+.related-products h3 {
+  margin: 0.5rem;
+}
+
 /* Shortcode styling */
 
 .product-shortcode {
@@ -163,10 +174,6 @@ a {
 }
 
 /* Some misc site styling :-) */
-
-.header-navigation-wrapper {
-  display: none;
-}
 
 body {
   background-color: #d9fff1;

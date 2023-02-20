@@ -251,8 +251,26 @@ function custom_product_shortcode( $atts ) {
   </div>
   <?php
   $output = ob_get_clean();
+
+  if( has_filter('custom_product_shortcode_output') ) {
+    $output = apply_filters('custom_product_shortcode_output', $output, $product_id, $background_color);
+  }
+
   return $output;
 }
 add_shortcode( 'custom_product', 'custom_product_shortcode' );
+
+//Adding custom filter for the shortcode
+
+function custom_product_shortcode_filter($output, $product_id, $background_color) {
+  $new_output = '<div class="product-shortcode" style="background-color: ' . $background_color . ';">';
+  $new_output .= '<p>This is a modified shortcode output for the product with the ID: ' . $product_id . '</p>';
+  $new_output .= '</div>';
+
+  return $new_output;
+}
+
+//Uncomment filter below to override shortcut output
+// add_filter('custom_product_shortcode_output', 'custom_product_shortcode_filter', 10, 3);
 
 ?>
