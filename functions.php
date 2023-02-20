@@ -298,7 +298,7 @@ function get_products_in_category( $request ) {
           'image' => get_the_post_thumbnail_url(),
           'price' => get_post_meta( get_the_ID(), 'meta_price', true ),
           'sale_price' => get_post_meta( get_the_ID(), 'meta_sale_price', true ),
-          'on_sale' => get_post_meta( get_the_ID(), 'meta_on_sale', true ),
+          'on_sale' => get_post_meta( get_the_ID(), '_meta_on_sale', true ),
       );
       $data[] = $product_data;
   }
